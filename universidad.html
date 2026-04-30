@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universidad | Portafolio Académico</title>
+    <meta name="description" content="Misión y Visión de la Universidad Peruana Los Andes.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-effects">
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Logo UPLA">
+            <span style="font-size: 1rem; font-weight: 400; margin-left: 15px; color: var(--text-color);">
+                Alumno: <strong>Ricra Castillo Jhan Pool</strong>
+            </span>
+        </a>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            
+            <li class="dropdown">
+                <a href="semanas.html">Semanas <i class="fa-solid fa-chevron-down" style="font-size: 0.7em; margin-left: 3px;"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="semanas.html#semana1">Semana 1</a></li>
+                    <li><a href="semanas.html#semana2">Semana 2</a></li>
+                    <li><a href="semanas.html#semana3">Semana 3</a></li>
+                    <li><a href="semanas.html#semana4">Semana 4</a></li>
+                </ul>
+            </li>
+
+            <li><a href="curso.html">Curso</a></li>
+            <li><a href="universidad.html">Universidad</a></li>
+        </ul>
+        <button class="btn btn-outline">Empezar</button>
+    </nav>
+
+    <main>
+        <section id="universidad-hero" class="hero" style="min-height: auto; padding-top: 150px; padding-bottom: 50px; align-items: flex-start;">
+            <div class="hero-content" style="text-align: center; width: 100%; padding: 0;">
+                <div class="badge">Nuestra Alma Máter ✦</div>
+                <h1 class="hero-title">Universidad Peruana <br><span class="gradient-text">Los Andes</span></h1>
+                <p class="hero-subtitle" style="margin: 0 auto; max-width: 800px;">
+                    La UPLA es una institución comprometida con la formación de profesionales integrales y el desarrollo sostenible de nuestra región.
+                </p>
+            </div>
+        </section>
+
+        <section class="services" style="padding-top: 2rem;">
+            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+                
+                <div class="service-card glass-card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3 class="gradient-text" style="font-size: 2rem; margin-bottom: 1rem;">Misión</h3>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+                        "Formar profesionales competitivos, innovadores y con valores éticos, a través de una investigación científica, tecnológica y humanística, proyectada a la sociedad para contribuir al desarrollo sostenible de la región y el país."
+                    </p>
+                </div>
+
+                <div class="service-card glass-card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-eye"></i></div>
+                    <h3 class="gradient-text" style="font-size: 2rem; margin-bottom: 1rem;">Visión</h3>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+                        "Ser una universidad reconocida nacional e internacionalmente por su excelencia académica, investigación científica, tecnológica y humanística, con responsabilidad social y ambiental."
+                    </p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Logo UPLA">
+                <span style="font-size: 0.9rem; font-weight: 400; margin-left: 10px; color: var(--text-color);">
+                    Ricra Castillo Jhan Pool
+                </span>
+            </a>
+            <p>&copy; 2026 Portafolio Académico. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
