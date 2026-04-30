@@ -1,0 +1,511 @@
+:root {
+    --bg-color: #030305;
+    --text-color: #ffffff;
+    --text-muted: #94a3b8;
+    --accent-1: #6366f1; /* Indigo */
+    --accent-2: #a855f7; /* Purple */
+    --accent-3: #ec4899; /* Pink */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: transparent; 
+    color: var(--text-color);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- Background Effects --- */
+.background-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-image: url('fondo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.background-effects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 3, 5, 0.6);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: rgba(3, 3, 5, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    padding: 1rem 5%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* --- Logo --- */
+.logo img {
+    height: 70px; 
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-links > li > a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.nav-links > li > a:hover::after {
+    width: 100%;
+}
+
+/* --- ESTILOS DEL MENÚ DESPLEGABLE (Semanas) --- */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 150%;
+    left: 0;
+    background: rgba(3, 3, 5, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    min-width: 160px;
+    list-style: none;
+    padding: 0.5rem 0;
+    box-shadow: var(--glass-shadow);
+    
+    /* Animación de entrada */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    padding-left: 2rem; 
+}
+
+/* Buttons */
+.btn {
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-color);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    color: white;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+}
+
+.btn-secondary {
+    background: var(--glass-bg);
+    color: var(--text-color);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-2px);
+}
+
+.btn-secondary i {
+    margin-right: 8px;
+    color: var(--accent-3);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    margin-top: 60px;
+}
+
+.hero-content {
+    flex: 1;
+    padding-right: 5%;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 30px;
+    color: #a5b4fc;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, var(--accent-1), var(--accent-3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* AJUSTE PARA PÁRRAFOS MÁS LARGOS */
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 650px; /* Aumentado para que los textos largos se lean mejor */
+    line-height: 1.8; /* Mejor interlineado */
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Visual Side - Glassmorphism */
+.hero-visual {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: var(--glass-shadow);
+}
+
+.main-card {
+    width: 400px;
+    height: 500px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    animation: float-slow 6s ease-in-out infinite alternate;
+}
+
+@keyframes float-slow {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-20px); }
+}
+
+.card-header {
+    margin-bottom: 2rem;
+}
+
+.dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+}
+
+.dots span:nth-child(1) { background: #ff5f56; }
+.dots span:nth-child(2) { background: #ffbd2e; }
+.dots span:nth-child(3) { background: #27c93f; }
+
+.skeleton-line {
+    height: 12px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+.skeleton-line.full { width: 100%; }
+.skeleton-line.medium { width: 70%; }
+.skeleton-line.short { width: 40%; margin-bottom: 30px;}
+
+.chart {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.bar {
+    flex: 1;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px 4px 0 0;
+    transition: height 1s ease;
+}
+
+.bar.accent {
+    background: linear-gradient(to top, var(--accent-1), var(--accent-2));
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+}
+
+.floating-card {
+    position: absolute;
+    bottom: 50px;
+    left: -30px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: float-fast 4s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes float-fast {
+    0% { transform: translateY(0px) translateX(0px); }
+    100% { transform: translateY(-15px) translateX(10px); }
+}
+
+.floating-card i {
+    font-size: 2rem;
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.floating-card h4 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.floating-card p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #10b981;
+}
+
+/* --- ESTILOS PARA LA PÁGINA DE SEMANAS --- */
+.semana-section {
+    padding: 2rem 5%;
+    scroll-margin-top: 120px; 
+}
+
+.semana-card {
+    padding: 3rem;
+    margin-bottom: 2rem;
+}
+
+.semana-card h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Services Section */
+.services {
+    padding: 5rem 5%;
+    position: relative;
+    z-index: 10;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(168,85,247,0.1));
+    color: var(--accent-2);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    color: var(--text-muted);
+}
+
+/* Footer */
+footer {
+    padding: 3rem 5%;
+    border-top: 1px solid var(--glass-border);
+    margin-top: 5rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+    }
+    
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+}
